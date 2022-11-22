@@ -7,7 +7,8 @@ export default function Form(){
         lastName :"", 
         email: "", 
         comment: "",
-       isFriendly: true
+       isFriendly: true,
+       employment: ""
     }
         )
     
@@ -18,7 +19,7 @@ export default function Form(){
        setFormData(prevFormData => {
         return{
             ...prevFormData,
-          [ name]:value 
+          [ name]:  value
         }
        })
     }
@@ -61,9 +62,47 @@ export default function Form(){
              id="isFriendly"
              checked={formData.isFriendly}
              onChange={handleChanged}
+             name="isFriendly"
              />
              <label htmlFor='isFriendly'> Are you friendly?</label>
              <br/>
+             <br/>
+             <fieldset>
+                <legend>Current employment status</legend>
+                
+                <input 
+                    type="radio"
+                    id="unemployed"
+                    name="employment"
+                    checked={formData.employment === "unemployed"}
+                    value="unemployed"
+                    onChange={handleChanged}
+                />
+                <label htmlFor="unemployed">Unemployed</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="part-time"
+                    name="employment"
+                    value="part-time"
+                    checked={formData.employment === "part-time"}
+                    onChange={handleChanged}
+                />
+                <label htmlFor="part-time">Part-time</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="full-time"
+                    name="employment"
+                    value="full-time"
+                    onChange={handleChanged}
+                />
+                <label htmlFor="full-time">Full-time</label>
+                <br />
+                
+            </fieldset>
         </form>
         
     )
